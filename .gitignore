@@ -1,0 +1,4 @@
+#executable
+*.exe
+#test src
+test.c
