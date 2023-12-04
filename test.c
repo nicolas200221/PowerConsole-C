@@ -13,6 +13,10 @@ int main(void){
     printf("bella");
     Reset();
     getchar();
+    int array[2] = {0};
+    GetCursorPosition(&array);
+    printf("x: %d\ny: %d", array[0], array[1]);
+    getchar();
     ClearScr();
     return 0;
 }
