@@ -38,7 +38,7 @@ void GetCursorPosition(int (*array)[2]){
     cfmakeraw(&raw);
     tcsetattr(STDIN_FILENO, TCSANOW, &raw);
     printf("\033[6n");
-    scanf("\033[%d;%dR", (*array)[0], (*array)[1]);
+    scanf("\033[%d;%dR", &(*array)[1], &(*array)[0]);
     tcsetattr(STDIN_FILENO, TCSANOW, &original);
 }
 #endif
