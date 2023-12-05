@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "import\powerconsole.h"
+#include "import/powerconsole.h"
 
 int main(void){
     #ifdef _WIN32
@@ -9,12 +9,12 @@ int main(void){
     //SetBackgroundColor(WHITE);
     //Invert();
     SetColor(RED, BYELLOW);
-    MoveCursor(10, 10);
+    MoveCursor(10, 12);
     printf("bella");
     Reset();
-    getchar();
     int array[2] = {0};
     GetCursorPosition(&array);
+    getchar();
     printf("x: %d\ny: %d", array[0], array[1]);
     getchar();
     ClearScr();

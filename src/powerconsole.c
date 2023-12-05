@@ -27,8 +27,8 @@ void MoveCursor(int x, int y){
 void GetCursorPosition(int (*array)[2]){
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-    *array[0] = csbi.dwCursorPosition.X;
-    *array[1] = csbi.dwCursorPosition.Y;
+    (*array)[0] = csbi.dwCursorPosition.X;
+    (*array)[1] = csbi.dwCursorPosition.Y;
 }
 #else
 void GetCursorPosition(int (*array)[2]){
@@ -38,7 +38,7 @@ void GetCursorPosition(int (*array)[2]){
     cfmakeraw(&raw);
     tcsetattr(STDIN_FILENO, TCSANOW, &raw);
     printf("\033[6n");
-    scanf("\033[%d;%dR", array[0], array[1]);
+    scanf("\033[%d;%dR", (*array)[0], (*array)[1]);
     tcsetattr(STDIN_FILENO, TCSANOW, &original);
 }
 #endif
