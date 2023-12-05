@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "..\import\powerconsole.h"
+#include "../import/powerconsole.h"
 
 void ClearScr(){
     printf(CLSCR);

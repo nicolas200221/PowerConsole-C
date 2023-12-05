@@ -1,4 +1,4 @@
-#include "..\import\defsys.h"
+#include "../import/defsys.h"
 
 void EnableAnsi(){
     HANDLE handleOut = GetStdHandle(STD_OUTPUT_HANDLE);
