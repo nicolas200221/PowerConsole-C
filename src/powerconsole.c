@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "..\import\powerconsole.h"
+#include "../import/powerconsole.h"
 
 void ClearScr(){
     printf(CLSCR);
@@ -23,3 +23,22 @@ void SetColor(int foregroundColor, int backgroundColor){
 void MoveCursor(int x, int y){
     printf("\033[%d;%dH", y+1, x+1);
 }
+#ifdef _WIN32
+void GetCursorPosition(int (*array)[2]){
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    (*array)[0] = csbi.dwCursorPosition.X;
+    (*array)[1] = csbi.dwCursorPosition.Y;
+}
+#else
+void GetCursorPosition(int (*array)[2]){
+    struct termios original;
+    struct termios raw;
+    tcgetattr(STDIN_FILENO, &original);
+    cfmakeraw(&raw);
+    tcsetattr(STDIN_FILENO, TCSANOW, &raw);
+    printf("\033[6n");
+    scanf("\033[%d;%dR", &(*array)[1], &(*array)[0]);
+    tcsetattr(STDIN_FILENO, TCSANOW, &original);
+}
+#endif

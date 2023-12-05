@@ -1,5 +1,6 @@
-#include "..\import\defsys.h"
+#include "../import/defsys.h"
 
+#ifdef _WIN32
 void EnableAnsi(){
     HANDLE handleOut = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD consoleOut;
@@ -7,3 +8,4 @@ void EnableAnsi(){
     consoleOut |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
     SetConsoleMode(handleOut, consoleOut);
 }
+#endif
