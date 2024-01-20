@@ -2,9 +2,7 @@
 #include "import/powerconsole.h"
 
 int main(void){
-    #ifdef _WIN32
-    EnableAnsi();
-    #endif
+    InitScr();
     //SetForegroundColor(BLACK);
     //SetBackgroundColor(WHITE);
     //Invert();
@@ -17,6 +15,10 @@ int main(void){
     getchar();
     printf("x: %d\ny: %d", array[0], array[1]);
     getchar();
-    ClearScr();
+    EndScr();
+    SetColor(RED, BYELLOW);
+    MoveCursor(20, 32);
+    printf("bella");
+    Reset();
     return 0;
 }

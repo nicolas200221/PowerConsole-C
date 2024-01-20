@@ -8,7 +8,7 @@
 #include <unistd.h>
 #endif
 
-#include "defsys.h"
+#include "init.h"
 #include "colors.h"
 
 #define CLSCR "\033[2J\033[H"

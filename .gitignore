@@ -1,8 +1,8 @@
 #executable
 *.exe
-#test src
-test.c
 #obj
 lib/obj/*.o
 #lib
 lib/*.a
+#.vscode
+.vscode/
